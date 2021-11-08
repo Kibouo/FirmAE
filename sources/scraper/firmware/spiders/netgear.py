@@ -4,7 +4,7 @@ from scrapy.http import FormRequest
 from firmware.items import FirmwareImage
 from firmware.loader import FirmwareLoader
 
-import urlparse
+from urllib.parse import urlparse
 
 
 class NetgearSpider(Spider):

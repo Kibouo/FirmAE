@@ -5,7 +5,7 @@ from firmware.items import FirmwareImage
 from firmware.loader import FirmwareLoader
 
 import re
-import urlparse
+from urllib.parse import urlparse
 
 
 class ActiontecSpider(Spider):

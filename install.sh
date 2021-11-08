@@ -2,6 +2,7 @@
 
 sudo apt-get update
 sudo apt-get install -y curl wget git ruby python3 python3-pip bc
+python3 -m pip install --upgrade pip
 python3 -m pip install coloredlogs
 
 # for docker
@@ -18,6 +19,7 @@ echo "host all all 172.17.0.1/24 trust" | sudo -u postgres tee --append /etc/pos
 
 sudo apt install libpq-dev
 python3 -m pip install psycopg2 psycopg2-binary
+python3 -m pip install scrapy urlparse3 setuptools_rust # for firmware scraper
 
 sudo apt-get install -y busybox-static bash-static fakeroot dmsetup kpartx netcat-openbsd nmap python3-psycopg2 snmp uml-utilities util-linux vlan
 

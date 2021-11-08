@@ -5,7 +5,7 @@ from firmware.items import FirmwareImage
 from firmware.loader import FirmwareLoader
 
 import os
-import urlparse
+from urllib.parse import urlparse
 
 class TomatoShibbySpider(Spider):
     name = "tomato-shibby"

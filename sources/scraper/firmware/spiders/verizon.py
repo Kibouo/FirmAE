@@ -4,7 +4,7 @@ from scrapy.http import Request
 from firmware.items import FirmwareImage
 from firmware.loader import FirmwareLoader
 
-import urlparse
+from urllib.parse import urlparse
 
 # http://www.fiosfaq.com/index.php?action=cat&catnum=12
 # http://verizontest.blogspot.com/p/general-info.html

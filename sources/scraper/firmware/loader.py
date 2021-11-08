@@ -4,7 +4,7 @@ from scrapy.loader.processors import Identity, MapCompose, TakeFirst
 import datetime
 import re
 import string
-import urlparse
+from urllib.parse import urlparse
 
 
 class FirmwareLoader(ItemLoader):

@@ -6,7 +6,7 @@ from firmware.loader import FirmwareLoader
 
 import datetime
 import json
-import urlparse
+from urllib.parse import urlparse
 
 
 class HuaweiZHSpider(Spider):

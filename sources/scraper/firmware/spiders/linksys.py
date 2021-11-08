@@ -4,7 +4,7 @@ from scrapy.http import Request, HtmlResponse
 from firmware.items import FirmwareImage
 from firmware.loader import FirmwareLoader
 
-import urlparse
+from urllib.parse import urlparse
 
 # see: http://www.dd-wrt.com/phpBB2/viewtopic.php?t=145255&postdays=0&postorder=asc&start=0
 # and http://download.modem-help.co.uk/mfcs-L/LinkSys/
