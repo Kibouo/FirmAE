@@ -5,7 +5,7 @@ from scrapy.pipelines.files import FilesPipeline
 import os
 import hashlib
 import logging
-from urllib.parse import urlparse,urlsplit
+from urllib.parse import urlparse,urlsplit,urlunsplit
 import urllib
 
 logger = logging.getLogger(__name__)
@@ -60,7 +60,7 @@ class FirmwarePipeline(FilesPipeline):
                 split = urlsplit(item[x])
                 # remove username/password if only one provided
                 if split.username or split.password and not (split.username and split.password):
-                    item[x] = urlparse.urlunsplit(
+                    item[x] = urlunsplit(
                         (split[0], split[1][split[1].find("@") + 1:], split[2], split[3], split[4]))
 
                 if split.scheme == "http":
