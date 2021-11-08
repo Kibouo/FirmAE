@@ -5,7 +5,7 @@ from scrapy.pipelines.files import FilesPipeline
 import os
 import hashlib
 import logging
-from urllib.parse import urlparse
+from urllib.parse import urlparse,urlsplit
 import urllib
 
 logger = logging.getLogger(__name__)
@@ -42,7 +42,7 @@ class FirmwarePipeline(FilesPipeline):
     # overrides function from FilesPipeline
     def file_path(self, request, response=None, info=None):
         extension = os.path.splitext(os.path.basename(
-            urlparse.urlsplit(request.url).path))[1]
+            urlsplit(request.url).path))[1]
         return "%s/%s%s" % (request.meta["vendor"],
                             hashlib.sha1(request.url).hexdigest(), extension)
 
@@ -57,7 +57,7 @@ class FirmwarePipeline(FilesPipeline):
         # resolve dynamic redirects in urls
         for x in ["mib", "sdk", "url"]:
             if x in item:
-                split = urlparse.urlsplit(item[x])
+                split = urlsplit(item[x])
                 # remove username/password if only one provided
                 if split.username or split.password and not (split.username and split.password):
                     item[x] = urlparse.urlunsplit(
