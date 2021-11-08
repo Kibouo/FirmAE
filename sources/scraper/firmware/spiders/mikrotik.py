@@ -4,7 +4,7 @@ from scrapy.http import FormRequest
 from firmware.items import FirmwareImage
 from firmware.loader import FirmwareLoader
 
-import urlparse
+from urllib.parse import urlparse,urljoin
 
 
 class MikrotikSpider(Spider):
@@ -16,7 +16,7 @@ class MikrotikSpider(Spider):
         for arch in ["1", "2", "3", "4", "5", "6", "swos"]:
             for pub in ["1", "2", "3", "4", "5"]:
                 yield FormRequest(
-                    url=urlparse.urljoin(response.url, "/client/ajax.php"),
+                    url=urljoin(response.url, "/client/ajax.php"),
                     formdata={"action": "getRouterosArch",
                               "arch": arch, "pub": pub},
                     headers={"Referer": response.url,

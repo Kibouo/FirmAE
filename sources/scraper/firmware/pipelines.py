@@ -5,7 +5,7 @@ from scrapy.pipelines.files import FilesPipeline
 import os
 import hashlib
 import logging
-import urlparse
+from urllib.parse import urlparse
 import urllib
 
 logger = logging.getLogger(__name__)
