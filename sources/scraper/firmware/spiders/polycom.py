@@ -45,7 +45,7 @@ class PolycomSpider(Spider):
                 href = entry.xpath("./a/@href").extract()[0].strip()
                 date = entry.xpath("./span//text()").extract()
 
-                path = urlparse.urlparse(href).path
+                path = urlparse(href).path
 
                 if any(x in text.lower() for x in ["end user license agreement", "eula", "release notes",
                                                    "mac os", "windows", "guide", "(pdf)", "sample"]) or href.endswith(".pdf"):

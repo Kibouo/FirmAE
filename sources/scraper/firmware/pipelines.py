@@ -67,7 +67,7 @@ class FirmwarePipeline(FilesPipeline):
                     item[x] = urllib.urlopen(item[x]).geturl()
 
         # check for filtered url types in path
-        url = urlparse.urlparse(item["url"])
+        url = urlparse(item["url"])
         if any(url.path.endswith(x) for x in [".pdf", ".php", ".txt", ".doc", ".rtf", ".docx", ".htm", ".html", ".md5", ".sha1", ".torrent"]):
             raise DropItem("Filtered path extension: %s" % url.path)
         elif any(x in url.path for x in ["driver", "utility", "install", "wizard", "gpl", "login"]):
